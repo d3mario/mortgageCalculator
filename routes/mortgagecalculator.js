@@ -3,11 +3,11 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource!!');
+  res.render('calculate', { title: 'Mortgage Calculator' });
 });
 
 router.get('/cool', function(req, res, next){
-  res.send('You\'re so cool');
+  res.render('calculate', { title: 'Mortgage Calculator' });
 });
 
 module.exports = router;

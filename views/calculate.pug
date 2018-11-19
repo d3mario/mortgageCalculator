@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p.bg-blue Welcome to #{title}
+  p Use our home loan calculator to estimate your mortgage payment, with taxes and insurance. Simply enter the price of the home, your down payment, and details about the home loan to calculate your mortgage payment breakdown, schedule, and more.
+
+  div.wrapper 
+    form(action="calculate", method="post")
+        label(for="priceOfHome")|Price of home
+        input(type="number", name="priceOfHome")
+        label(for="priceOfHome")|Down Payment
+        input(type="number", name="downPayment")
+        label(for="priceOfHome")|Percentage of down payment        
+        input(type="number", name="percentageOfPriceOfHome")
+        label(for="priceOfHome")|Select loan
+        input(type="select", name="lengthOfLoan")
+        label(for="interestRate")| Interest rate
+        input(type="number", name="interestRate")
+        input(type="button", value="submit")
+        
