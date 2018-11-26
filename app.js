@@ -2,7 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var logger = require('morgan'); 
 
 var mongoose = require('mongoose');
 var mongoDB ='mongodb://demario:iLmF2018_!@ds153637.mlab.com:53637/debtcal'
@@ -10,8 +10,10 @@ mongoose.Promise = global.Promise;
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 var indexRouter = require('./routes/index');
 var mortgageCalculatorRouter = require('./routes/mortgagecalculator');
+var debtTotalsRouter = require('./routes/debtTotals');
 
 var app = express();
 app.locals.moment = require('moment');
@@ -28,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/mortgage', mortgageCalculatorRouter);
+app.use('/debtTotals', debtTotalsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
