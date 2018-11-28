@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan'); 
 
 var mongoose = require('mongoose');
-var mongoDB ='mongodb://demario:iLmF2018_!@ds153637.mlab.com:53637/debtcal'
+var mongoDB ='mongodb://demario:iLmF2018_!@ds153637.mlab.com:53637/debtcal';
 mongoose.Promise = global.Promise;
 
 var db = mongoose.connection;
