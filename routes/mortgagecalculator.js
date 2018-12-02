@@ -5,6 +5,7 @@ var mortgageController = require('../controllers/mortgageCalculatorController');
 /* GET users listing. */
 router.get('/', mortgageController.index);
 
-router.post('/:name',mortgageController.index);
+router.post('/', mortgageController.process);
+
 
 module.exports = router;

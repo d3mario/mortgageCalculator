@@ -5,7 +5,7 @@ var router =  express.Router();
 var debtController = require('../controllers/debtController');
 
 /* GET users listing. */
-router.get('/', debtController.index);
+router.post('/debtTotals/', debtController.index);
 
   
-  module.exports = router;
+module.exports = router;
