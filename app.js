@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan'); 
 const bodyParser = require('body-parser');
 const lodash = require('lodash');
+const helpers = require('./helpers');
 
 
 var mongoose = require('mongoose');
@@ -35,9 +36,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// import variables to our template + all request
+app.use((req, res, next) => {
+  res.locals.h = helpers;
+  next();
+});
+
+
 app.use('/', indexRouter);
 app.use('/mortgage', mortgageCalculatorRouter);
 app.use('/debtTotals/', debtTotalsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
